@@ -44,7 +44,7 @@ public class ReverseInteger {
 
     //https://www.jianshu.com/p/0f7c7a48ce18
     public static  void main(String[] args){
-       int[] largest = new int[Integer.MAX_VALUE];
+       int[] largest = new int[Integer.MAX_VALUE-3];
     }
 
 
