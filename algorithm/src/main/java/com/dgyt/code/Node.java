@@ -24,7 +24,7 @@ public class Node{
      Node head = new Node(); 
      Node cur = head;
      cur.value=values[0];
-     for(int i=1;i<values.length;i++){
+     for(int i= 1;i<values.length;i++){
          Node tmp = new Node();
          tmp.value=values[i];
          cur.next = tmp;
@@ -72,7 +72,7 @@ public class Node{
 
     public static void main(String[] args){
         Node head = Node.init(new int[]{4,5,6,8,4,4,2});
-      	head =Node.deleteNodeByValue(head,4);
+        head =Node.deleteNodeByValue(head,4);
         Node.printNode(head);
     }
    
