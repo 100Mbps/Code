@@ -2,7 +2,6 @@ package com.dgyt.code;
 
 public class ReverseInteger {
 
-
     public int reverse(int x) {
         long ans;
         long xl = x;
@@ -26,10 +25,10 @@ public class ReverseInteger {
     }
     public int[] pickTwo(int[] num){
         if(num.length ==2) return num;
-        int xor = 0;
-        for(int i=0;i<num.length;i++){
-            xor^=num[i];
-        }
+        //int xor = 0;
+        //for(int i=0;i<num.length;i++){
+          //  xor^=num[i];
+        //}
 
 
 

@@ -1,0 +1,6 @@
+/algorithm/target/*
+/algorithm/.idea/*
+/algorithm/.settings/*
+/algorithm/.classpath
+/algorithm/.project
+/algorithm/algorithm.iml
