@@ -1,7 +1,5 @@
 package com.dgyt.leetcode.problems.addtwonumber;
 
-import java.util.Iterator;
-
 /**
  * https://leetcode.com/problems/add-two-numbers/
  */
@@ -9,6 +7,7 @@ public class AddTwoNumber {
 
     /**
      * 我的答案
+     *
      * @param l1
      * @param l2
      * @return

@@ -17,6 +17,7 @@ public class Palindrome {
     public static  void main(String[] args){
         Palindrome.isPalindrome(11);
         boolean  result = Palindrome.isPalindrome(10);
+
         System.out.println(result);
 
 

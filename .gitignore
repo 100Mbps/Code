@@ -5,6 +5,13 @@
 /algorithm/.classpath
 /algorithm/.project
 /algorithm/algorithm.iml
+*.iml
+/jvm/.idea/*
+.settings/*
+.classpath/*
+target/*
+
+
 #https://github.com/github/gitignore
 # Compiled class file
 *.class

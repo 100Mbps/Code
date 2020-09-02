@@ -1,6 +1,6 @@
 package com.dgyt.leetcode.problems.addtwonumber;
 
-public class ListNode {
+class ListNode {
 
     int val;
     ListNode next;
@@ -12,10 +12,10 @@ public class ListNode {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
+//    ListNode(int val, ListNode next) {
+//        this.val = val;
+//        this.next = next;
+//    }
 
 
 }
