@@ -13,7 +13,7 @@ public class Test {
     public static int generateSerialNumber() {
         return nextSerialNumber++;
     }
-    private static Map<Integer, Integer> cache = new ConcurrentHashMap<>(1 << 20);
+    private static final Map<Integer, Integer> cache = new ConcurrentHashMap<>(1 << 20);
     public static void main(String[] args) {
         Runnable run = () -> {
             while (true) {

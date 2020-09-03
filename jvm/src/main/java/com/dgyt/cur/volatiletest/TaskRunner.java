@@ -12,14 +12,18 @@ public class TaskRunner {
             while (!ready) {
                 Thread.yield();
             }
- 
             System.out.println(number);
         }
     }
  
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         new Reader().start();
         number = 42;
         ready = true;
+        Runtime.getRuntime().addShutdownHook(new Thread(()->{
+            long end = System.currentTimeMillis();
+            System.out.println((end - start));
+        }));
     }
 }
