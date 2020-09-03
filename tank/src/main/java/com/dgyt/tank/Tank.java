@@ -2,7 +2,7 @@ package com.dgyt.tank;
 
 import java.awt.*;
 
-public class MyTank {
+public class Tank {
 
     private static final int SPEED = 10;
     private int x = 80;
@@ -10,7 +10,7 @@ public class MyTank {
     private boolean moving;
 
     Direction direction = Direction.DOWN;
-    public MyTank(int x, int y, Direction direction) {
+    public Tank(int x, int y, Direction direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
@@ -33,7 +33,6 @@ public class MyTank {
             }
         }
         g.fillRect(x, y, 40, 40);
-
     }
     public boolean isMoving() {
         return moving;

@@ -8,15 +8,16 @@ import java.awt.event.WindowEvent;
 
 
 public class TankFrame extends Frame {
-    private final MyTank myTank = new MyTank(80, 80, Direction.DOWN);
+    private final Tank myTank = new Tank(80, 80, Direction.DOWN);
     private final Bullet bullet = new Bullet(90, 90, Direction.DOWN);
+    private final static int GAME_WIDTH=800,GAME_HEIGHT=600;
 
     public TankFrame(String name) {
         super.setVisible(true);
         super.setResizable(true);
         super.setName(name);
         super.setTitle(name);
-        super.setSize(800, 800);
+        super.setSize(GAME_WIDTH, GAME_HEIGHT);
         super.addWindowListener(new WindowAdapter() {
             // close frame
             @Override
@@ -102,6 +103,22 @@ public class TankFrame extends Frame {
                 myTank.setMoving(true);
             }
         }
+    }
+    Image offScreenImage = null;
+     // 造成原因为，屏幕的刷新频率高于画的频率，
+    //解决屏幕闪烁问题，首先将需要画的内容画到一张图里，待图完成后，刷到frame上。
+    @Override
+    public void update(Graphics g) {
+        if (offScreenImage == null) {
+            offScreenImage = this.createImage(GAME_WIDTH, GAME_HEIGHT);
+        }
+        Graphics gOffScreen = offScreenImage.getGraphics();
+        Color c = gOffScreen.getColor();
+        gOffScreen.setColor(Color.BLACK);
+        gOffScreen.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+        gOffScreen.setColor(c);
+        paint(gOffScreen);
+        g.drawImage(offScreenImage, 0, 0, null);
     }
 
 
