@@ -5,9 +5,9 @@ import java.awt.*;
 public class Bullet {
 
     private static final int SPEED = 4;
-    private int x = 80;
-    private int y = 80;
-    private TankFrame tankFrame;
+    private int x;
+    private int y;
+    private final TankFrame tankFrame;
     private boolean alive = true;
 
     Direction direction = Direction.DOWN;
@@ -21,15 +21,13 @@ public class Bullet {
 
     public void paint(Graphics g) {
         move();
-        if(alive) {
-            Color originalColor = g.getColor();
-            g.setColor(Color.red);
-            g.fillOval(x, y, 10, 10);
-            g.setColor(originalColor);
-        }else{
+        if(!alive) {
             tankFrame.bulletList.remove(this);
         }
-
+        Color originalColor = g.getColor();
+        g.setColor(Color.red);
+        g.fillOval(x, y, 10, 10);
+        g.setColor(originalColor);
     }
     private void move(){
         switch (direction) {
@@ -51,7 +49,7 @@ public class Bullet {
 
 
     private void setAlive(){
-       if(x <0 || y <0 ||x > TankFrame.GAME_WIDTH || y < TankFrame.GAME_HEIGHT){
+       if(x < 0 || y < 0 || x > TankFrame.GAME_WIDTH || y > TankFrame.GAME_HEIGHT){
            this.alive =false;
        }
     }
