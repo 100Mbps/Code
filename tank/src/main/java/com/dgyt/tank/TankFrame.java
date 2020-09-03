@@ -8,7 +8,7 @@ import java.awt.event.WindowEvent;
 
 
 public class TankFrame extends Frame {
-    private final Tank myTank = new Tank(80, 80, Direction.DOWN);
+    private final Tank myTank = new Tank(80, 80, Direction.DOWN,this);
     private final Bullet bullet = new Bullet(90, 90, Direction.DOWN);
     private final static int GAME_WIDTH=800,GAME_HEIGHT=600;
 
