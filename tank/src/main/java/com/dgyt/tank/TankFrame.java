@@ -8,7 +8,9 @@ import java.awt.event.WindowEvent;
 
 
 public class TankFrame extends Frame {
-    private final  MyTank myTank = new MyTank(80,80,Direction.DOWN);
+    private final MyTank myTank = new MyTank(80, 80, Direction.DOWN);
+    private final Bullet bullet = new Bullet(90, 90, Direction.DOWN);
+
     public TankFrame(String name) {
         super.setVisible(true);
         super.setResizable(true);
@@ -27,7 +29,8 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-          myTank.paint(g);
+        myTank.paint(g);
+        bullet.paint(g);
     }
 
     class MyKeyListener implements KeyListener {
@@ -41,10 +44,10 @@ public class TankFrame extends Frame {
         //Right
         private boolean bR = false;
 
-
         public void keyTyped(KeyEvent e) {
 
         }
+
         public void keyPressed(KeyEvent e) {
             // 39 ->
             int keyCode = e.getKeyCode();
@@ -66,6 +69,7 @@ public class TankFrame extends Frame {
             }
             setMainDirection();
         }
+
         public void keyReleased(KeyEvent e) {
             int keyCode = e.getKeyCode();
             switch (keyCode) {
@@ -86,17 +90,18 @@ public class TankFrame extends Frame {
             }
             setMainDirection();
         }
-        private void setMainDirection(){
-           if(!bL && !bR && !bU && !bD){
-               myTank.setMoving(false);
-           }else{
-               if(bL) myTank.direction = Direction.LEFT;
-               if(bR) myTank.direction = Direction.RIGHT;
-               if(bU) myTank.direction = Direction.UP;
-               if(bD) myTank.direction = Direction.DOWN;
-               myTank.setMoving(true);
-           }
-         }
+
+        private void setMainDirection() {
+            if (!bL && !bR && !bU && !bD) {
+                myTank.setMoving(false);
+            } else {
+                if (bL) myTank.direction = Direction.LEFT;
+                if (bR) myTank.direction = Direction.RIGHT;
+                if (bU) myTank.direction = Direction.UP;
+                if (bD) myTank.direction = Direction.DOWN;
+                myTank.setMoving(true);
+            }
+        }
     }
 
 

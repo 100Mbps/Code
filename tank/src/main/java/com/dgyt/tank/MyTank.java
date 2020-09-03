@@ -16,23 +16,25 @@ public class MyTank {
         this.direction = direction;
     }
     public void paint(Graphics g) {
-        switch (direction) {
-            case LEFT:
-                x -= SPEED;
-                break;
-            case RIGHT:
-                x += SPEED;
-                break;
-            case UP:
-                y -= SPEED;
-                break;
-            case DOWN:
-                y += SPEED;
-                break;
+        if(moving){
+            switch (direction) {
+                case LEFT:
+                    x -= SPEED;
+                    break;
+                case RIGHT:
+                    x += SPEED;
+                    break;
+                case UP:
+                    y -= SPEED;
+                    break;
+                case DOWN:
+                    y += SPEED;
+                    break;
+            }
         }
-        g.fillRect(x, y, 10, 10);
-    }
+        g.fillRect(x, y, 40, 40);
 
+    }
     public boolean isMoving() {
         return moving;
     }
