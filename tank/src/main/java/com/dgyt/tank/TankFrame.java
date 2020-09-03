@@ -5,12 +5,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 
 public class TankFrame extends Frame {
     private final Tank myTank = new Tank(80, 80, Direction.DOWN,this);
-    Bullet bullet = new Bullet(90, 90, Direction.DOWN);
-    private final static int GAME_WIDTH=800,GAME_HEIGHT=600;
+    java.util.List<Bullet> bulletList = new ArrayList<>();
+    final static int GAME_WIDTH=800,GAME_HEIGHT=600;
 
     public TankFrame(String name) {
         super.setVisible(true);
@@ -31,7 +32,9 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         myTank.paint(g);
-        bullet.paint(g);
+        for (Bullet bullet :bulletList){
+            bullet.paint(g);
+        }
     }
 
     class MyKeyListener implements KeyListener {
@@ -88,6 +91,7 @@ public class TankFrame extends Frame {
                     break;
                 case KeyEvent.VK_CONTROL:
                     myTank.fire();
+                    break;
                 default:
                     break;
             }
