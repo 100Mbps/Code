@@ -52,4 +52,8 @@ public class Tank {
     public void setMoving(boolean moving) {
         this.moving = moving;
     }
+
+    public void fire() {
+      tf.bullet = new Bullet(this.x,this.y,this.direction);
+    }
 }
