@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * volatile 不是为了解决线程同步问题，只是写线程写问题的一个限制。
- * 123
+ * 是否print结果差距蛮大
  */
 public class Test {
     private static volatile int nextSerialNumber = 0;
@@ -13,8 +13,7 @@ public class Test {
     public static int generateSerialNumber() {
         return nextSerialNumber++;
     }
-
-    private static final Map<Integer, Integer> cache = new ConcurrentHashMap<>(1 << 20);
+    private static Map<Integer, Integer> cache = new ConcurrentHashMap<>(1 << 20);
     public static void main(String[] args) {
         Runnable run = () -> {
             while (true) {
