@@ -1,11 +1,12 @@
 package com.dgyt.tank;
 
 import java.awt.*;
+import java.util.Dictionary;
 import java.util.Random;
 
 public class Tank {
 
-    private static final int SPEED = 1;
+    private static final int SPEED = 5;
     private int x = 80;
     private int y = 80;
     private boolean moving = true;
@@ -66,8 +67,41 @@ public class Tank {
             }
 
         }
-        autoFire();
+        if(this.group == Group.BAD){
+            autoFire();
+            autoChangeDirection();
+        }
+
     }
+
+    public void autoChangeDirection(){
+
+        switch (this.direction){
+            case LEFT:
+                 if(x <= 0){
+                     this.randomDirection(Direction.LEFT);
+                 }
+                 break;
+            case RIGHT:
+                if(x+Tank.WIDTH >= TankFrame.GAME_WIDTH){
+                    this.randomDirection(Direction.RIGHT);
+                }
+                break;
+            case UP:
+                if(y <= 0){
+                    this.randomDirection(Direction.UP);
+                }
+                break;
+            case DOWN:
+                if(y+Tank.HEIGHT >= TankFrame.GAME_HEIGHT){
+                    this.randomDirection(Direction.DOWN);
+                }
+                break;
+        }
+    }
+
+
+
     private void autoFire(){
         if(random.nextInt(10) >8) this.fire();
     }
@@ -106,5 +140,13 @@ public class Tank {
     public void die() {
         alive = false;
         tf.explode.add(new Explode(x,y,true,this.tf));
+    }
+
+    private void randomDirection(Direction original){
+        int nextDirection = random.nextInt(4);
+        while(this.direction == original){
+            this.direction = Direction.values()[nextDirection];
+            nextDirection = random.nextInt(4);
+        }
     }
 }
