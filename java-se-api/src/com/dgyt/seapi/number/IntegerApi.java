@@ -7,8 +7,8 @@ public class IntegerApi {
 
     public static void main(String[] args) {
         int high = Integer.highestOneBit(10);
-        //System.out.print(IntegerApi.log2(high));
-        int[] arr = {3, 3, 4, 4, 5, 6};
+        System.out.println(IntegerApi.log2(high));
+        int[] arr = {3, 3, 4, 4, 5, 56};
         int xor = 0;
         for (int num : arr) {
             xor ^= num;
@@ -35,9 +35,8 @@ public class IntegerApi {
 
         // calculate log2 N indirectly
         // using log() method
-        int result = (int) (Math.log(N) / Math.log(2));
+        return  (int) (Math.log(N) / Math.log(2));
 
-        return result;
     }
 
 
