@@ -18,11 +18,22 @@ public class Tank {
         this.tf = tf;
     }
     public void paint(Graphics g) {
+        switch (direction){
+            case LEFT:
+                g.drawImage(ResourceManager.tankL,x,y,null);
+                break;
+            case RIGHT:
+                g.drawImage(ResourceManager.tankR,x,y,null);
+                break;
+            case UP:
+                g.drawImage(ResourceManager.tankU,x,y,null);
+                break;
+            case DOWN:
+                g.drawImage(ResourceManager.tankD,x,y,null);
+                break;
+        }
+
         move();
-        Color originalColor = g.getColor();
-        g.setColor(Color.YELLOW);
-        g.fillRect(x, y, 40, 40);
-        g.setColor(originalColor);
     }
 
     private void move(){

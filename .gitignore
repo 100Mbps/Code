@@ -10,8 +10,9 @@
 /java-se-api/.idea/*
 .settings/*
 .classpath/*
-target/*
-/tank/.idea/*
+target/
+.idea/
+
 
 
 #https://github.com/github/gitignore
