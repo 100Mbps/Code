@@ -25,6 +25,7 @@ public class Bullet {
         move();
         if(!alive) {
             tankFrame.bulletList.remove(this);
+            return;
         }
         switch (direction){
             case LEFT:

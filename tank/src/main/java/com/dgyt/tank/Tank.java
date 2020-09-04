@@ -20,7 +20,10 @@ public class Tank {
         this.tf = tf;
     }
     public void paint(Graphics g) {
-        if(!alive) tf.tankList.remove(this);
+        if(!alive) {
+            tf.tankList.remove(this);
+            return;
+        }
         switch (direction){
             case LEFT:
                 g.drawImage(ResourceManager.tankL,x,y,null);
