@@ -8,9 +8,10 @@ public class Tank {
     private int x = 80;
     private int y = 80;
     private boolean moving;
-    private TankFrame tf;
-
-    Direction direction = Direction.DOWN;
+    private final TankFrame tf;
+    private static  final int WIDTH = ResourceManager.tankL.getWidth();
+    private static  final int HEIGHT = ResourceManager.tankL.getHeight();
+    Direction direction;
     public Tank(int x, int y, Direction direction,TankFrame tf) {
         this.x = x;
         this.y = y;
@@ -65,6 +66,8 @@ public class Tank {
     }
 
     public void fire() {
-      tf.bulletList.add(new Bullet(this.x,this.y,this.direction,this.tf));
+      int bx = x + (WIDTH - Bullet.WIDTH)/2;
+      int by = y + (HEIGHT - Bullet.HEIGHT)/2;
+      tf.bulletList.add(new Bullet(bx,by,this.direction,this.tf));
     }
 }
