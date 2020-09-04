@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Tank {
 
-    private static final int SPEED = 5;
+    private static final int SPEED = 2;
     private int x = 80;
     private int y = 80;
     private boolean moving = true;
@@ -17,6 +17,7 @@ public class Tank {
     public static  final int WIDTH = ResourceManager.tankL.getWidth();
     public static  final int HEIGHT = ResourceManager.tankL.getHeight();
     Direction direction;
+    private int time;
     public Tank(int x, int y, Direction direction,Group group,TankFrame tf) {
         this.x = x;
         this.y = y;
@@ -69,12 +70,29 @@ public class Tank {
         }
         if(this.group == Group.BAD){
             autoFire();
-            autoChangeDirection();
+            autoChangeDirectionV2();
         }
 
     }
 
-    public void autoChangeDirection(){
+    /**
+     * 碰壁转向+距离检测
+     */
+    private void autoChangeDirectionV2(){
+        time++;
+        if (x <= 0 || (x + Tank.WIDTH >= TankFrame.GAME_WIDTH) ||(y <= 0)||y+Tank.HEIGHT >= TankFrame.GAME_HEIGHT) {
+            this.autoChangeDirection();
+        }
+        if(time*SPEED >=200){
+            randomDirection(this.direction);
+            time = 0;
+        }
+    }
+
+    /**
+     * 碰壁转向
+     */
+    private void autoChangeDirection(){
 
         switch (this.direction){
             case LEFT:
@@ -139,7 +157,9 @@ public class Tank {
 
     public void die() {
         alive = false;
-        tf.explode.add(new Explode(x,y,true,this.tf));
+        int eX = x+(Tank.WIDTH - Explode.WIDTH)/2;
+        int eY = y+(Tank.HEIGHT - Explode.Height)/2;
+        tf.explode.add(new Explode(eX,eY,true,this.tf));
     }
 
     private void randomDirection(Direction original){

@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class Explode {
 
-   // private final static int WIDTH = ResourceManager.explodes[0].getWidth();
-    //private final static int Height = ResourceManager.explodes[0].getHeight();
+    public final static int WIDTH = ResourceManager.explodes[0].getWidth();
+    public final static int Height = ResourceManager.explodes[0].getHeight();
     private int step = 0;
     int x, y;
     boolean painting;
