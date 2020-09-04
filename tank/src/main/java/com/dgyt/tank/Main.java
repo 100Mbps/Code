@@ -6,6 +6,12 @@ public class Main {
 
     public static void main(String[] args) {
         final TankFrame frame = new TankFrame("my tank game");
+        for(int i=0;i<5;i++){
+
+            frame.tankList.add(new Tank(50*i+50,80,Direction.DOWN,frame));
+
+
+        }
         new Thread(()->{
             while (true){
                 try {

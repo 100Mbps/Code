@@ -41,7 +41,9 @@ public class Tank {
         if(moving) {
             switch (direction) {
                 case LEFT:
-                    x -= SPEED;
+                    if(x >0){
+                        x -= SPEED;
+                    }
                     break;
                 case RIGHT:
                     x += SPEED;

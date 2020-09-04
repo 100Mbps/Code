@@ -9,8 +9,9 @@ import java.util.ArrayList;
 
 
 public class TankFrame extends Frame {
-    private final Tank myTank = new Tank(80, 80, Direction.DOWN,this);
+    private final Tank myTank = new Tank(80, 120, Direction.UP,this);
     java.util.List<Bullet> bulletList = new ArrayList<>();
+    java.util.List<Tank> tankList = new ArrayList<>();
     final static int GAME_WIDTH=800,GAME_HEIGHT=600;
 
     public TankFrame(String name) {
@@ -36,8 +37,11 @@ public class TankFrame extends Frame {
         g.drawString(String.format("子弹数量:%d",bulletList.size()),60,60);
         g.setColor(originalColor);
         myTank.paint(g);
-        for(int i=0;i<bulletList.size();i++){
-            bulletList.get(i).paint(g);
+        for (Bullet bullet : bulletList) {
+            bullet.paint(g);
+        }
+        for (Tank tank : tankList) {
+            tank.paint(g);
         }
     }
 
