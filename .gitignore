@@ -7,6 +7,7 @@
 /algorithm/algorithm.iml
 *.iml
 /jvm/.idea/*
+/java-se-api/.idea/*
 .settings/*
 .classpath/*
 target/*

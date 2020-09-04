@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * volatile 不是为了解决线程同步问题，只是写线程写问题的一个限制。
  * 是否print结果差距蛮大
+ * http://ifeve.com/java-volatile%e5%85%b3%e9%94%ae%e5%ad%97/
  */
 public class Test {
     private static volatile int nextSerialNumber = 0;
