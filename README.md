@@ -1,1 +1,1 @@
-# AlgorithmCode
+# AlgCode
