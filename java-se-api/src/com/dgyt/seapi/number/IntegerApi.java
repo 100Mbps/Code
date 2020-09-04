@@ -32,11 +32,7 @@ public class IntegerApi {
 
 
     public static int log2(int N) {
-
-        // calculate log2 N indirectly
-        // using log() method
         return  (int) (Math.log(N) / Math.log(2));
-
     }
 
 
