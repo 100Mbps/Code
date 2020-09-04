@@ -9,8 +9,9 @@ public class Tank {
     private int y = 80;
     private boolean moving;
     private final TankFrame tf;
-    private static  final int WIDTH = ResourceManager.tankL.getWidth();
-    private static  final int HEIGHT = ResourceManager.tankL.getHeight();
+    boolean alive = true;
+    public static  final int WIDTH = ResourceManager.tankL.getWidth();
+    public static  final int HEIGHT = ResourceManager.tankL.getHeight();
     Direction direction;
     public Tank(int x, int y, Direction direction,TankFrame tf) {
         this.x = x;
@@ -19,6 +20,7 @@ public class Tank {
         this.tf = tf;
     }
     public void paint(Graphics g) {
+        if(!alive) tf.tankList.remove(this);
         switch (direction){
             case LEFT:
                 g.drawImage(ResourceManager.tankL,x,y,null);
@@ -33,7 +35,6 @@ public class Tank {
                 g.drawImage(ResourceManager.tankD,x,y,null);
                 break;
         }
-
         move();
     }
 
@@ -71,5 +72,25 @@ public class Tank {
       int bx = x + (WIDTH - Bullet.WIDTH)/2;
       int by = y + (HEIGHT - Bullet.HEIGHT)/2;
       tf.bulletList.add(new Bullet(bx,by,this.direction,this.tf));
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void die() {
+        alive = false;
     }
 }
