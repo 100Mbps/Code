@@ -1,6 +1,9 @@
 package com.dgyt.tank;
 
-import java.awt.*;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
@@ -9,11 +12,11 @@ import java.util.ArrayList;
 
 
 public class TankFrame extends Frame {
-    private final Tank myTank = new Tank(80, 120, Direction.UP,this);
-    java.util.List<Bullet> bulletList = new ArrayList<>();
-    java.util.List<Tank> tankList = new ArrayList<>();
+    private final Tank myTank = new Tank(80, 120, Direction.UP,Group.GOOD,this);
+    final java.util.List<Bullet> bulletList = new ArrayList<>();
+    final java.util.List<Tank> tankList = new ArrayList<>();
     final static int GAME_WIDTH=800,GAME_HEIGHT=600;
-
+    final java.util.List<Explode> explode = new ArrayList<>();
     public TankFrame(String name) {
         super.setVisible(true);
         super.setResizable(true);
@@ -48,6 +51,9 @@ public class TankFrame extends Frame {
             for(int j = 0; j<tankList.size();j++){
                 bulletList.get(i).collide(tankList.get(j));
             }
+        }
+        for(int i=0;i<explode.size();i++){
+            explode.get(i).paint(g);
         }
     }
 

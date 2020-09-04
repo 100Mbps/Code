@@ -11,14 +11,16 @@ public class Bullet {
     private boolean alive = true;
     public static  final int WIDTH = ResourceManager.bulletL.getWidth();
     public static  final int HEIGHT = ResourceManager.bulletL.getHeight();
+    private final Group group;
 
     Direction direction;
 
-    public Bullet(int x, int y, Direction direction,TankFrame tankFrame) {
+    public Bullet(int x, int y, Direction direction,Group group,TankFrame tankFrame) {
         this.x = x;
         this.y = y;
         this.direction = direction;
         this.tankFrame = tankFrame;
+        this.group = group;
     }
 
     public void paint(Graphics g) {
@@ -68,16 +70,13 @@ public class Bullet {
     }
 
     public void collide(Tank tank) {
-
+           if(this.group == tank.group)  return;
            Rectangle br = new Rectangle(this.x,this.y,Bullet.WIDTH,Bullet.HEIGHT);
            Rectangle tr = new Rectangle(tank.getX(),tank.getY(),Tank.WIDTH,Tank.HEIGHT);
            if(br.intersects(tr)){
                tank.die();
                this.die();
            }
-
-
-
     }
 
     private void die() {

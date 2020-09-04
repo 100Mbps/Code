@@ -1,27 +1,32 @@
 package com.dgyt.tank;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Tank {
 
-    private static final int SPEED = 10;
+    private static final int SPEED = 1;
     private int x = 80;
     private int y = 80;
-    private boolean moving;
+    private boolean moving = true;
     private final TankFrame tf;
+    Group group;
+    private final Random random = new Random();
     boolean alive = true;
     public static  final int WIDTH = ResourceManager.tankL.getWidth();
     public static  final int HEIGHT = ResourceManager.tankL.getHeight();
     Direction direction;
-    public Tank(int x, int y, Direction direction,TankFrame tf) {
+    public Tank(int x, int y, Direction direction,Group group,TankFrame tf) {
         this.x = x;
         this.y = y;
         this.direction = direction;
         this.tf = tf;
+        this.group = group;
     }
     public void paint(Graphics g) {
         if(!alive) {
             tf.tankList.remove(this);
+
             return;
         }
         switch (direction){
@@ -59,9 +64,13 @@ public class Tank {
                     y += SPEED;
                     break;
             }
-        }
-    }
 
+        }
+        autoFire();
+    }
+    private void autoFire(){
+        if(random.nextInt(10) >8) this.fire();
+    }
 
     public boolean isMoving() {
         return moving;
@@ -74,7 +83,7 @@ public class Tank {
     public void fire() {
       int bx = x + (WIDTH - Bullet.WIDTH)/2;
       int by = y + (HEIGHT - Bullet.HEIGHT)/2;
-      tf.bulletList.add(new Bullet(bx,by,this.direction,this.tf));
+      tf.bulletList.add(new Bullet(bx,by,this.direction,this.group,this.tf));
     }
 
     public int getX() {
@@ -93,7 +102,9 @@ public class Tank {
         this.y = y;
     }
 
+
     public void die() {
         alive = false;
+        tf.explode.add(new Explode(x,y,true,this.tf));
     }
 }

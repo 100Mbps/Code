@@ -8,6 +8,7 @@ import java.util.Objects;
 public class ResourceManager {
     public static  BufferedImage tankL,tankR,tankU,tankD;
     public static  BufferedImage bulletL,bulletR,bulletU,bulletD;
+    public final static BufferedImage[] explodes = new BufferedImage[16];
     static {
         try {
             //load tank image resource
@@ -20,6 +21,11 @@ public class ResourceManager {
             bulletR = ImageIO.read(Objects.requireNonNull(ResourceManager.class.getClassLoader().getResourceAsStream("images/bulletR.gif")));
             bulletU = ImageIO.read(Objects.requireNonNull(ResourceManager.class.getClassLoader().getResourceAsStream("images/bulletU.gif")));
             bulletD = ImageIO.read(Objects.requireNonNull(ResourceManager.class.getClassLoader().getResourceAsStream("images/bulletD.gif")));
+
+
+            for(int i=0;i<explodes.length;i++){
+                explodes[i] = ImageIO.read(Objects.requireNonNull(ResourceManager.class.getClassLoader().getResourceAsStream("images/e"+(i+1)+".gif")));
+            }
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -8,7 +8,7 @@ public class Main {
         final TankFrame frame = new TankFrame("my tank game");
         for(int i=0;i<5;i++){
 
-            frame.tankList.add(new Tank(50*i+50,80,Direction.DOWN,frame));
+            frame.tankList.add(new Tank(50*i+50,80,Direction.DOWN,Group.BAD,frame));
 
 
         }
