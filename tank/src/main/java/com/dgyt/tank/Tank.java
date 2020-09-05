@@ -11,6 +11,7 @@ public class Tank {
     private int y = 80;
     private boolean moving = true;
     private final TankFrame tf;
+    Rectangle rect;
     Group group;
     private final Random random = new Random();
     boolean alive = true;
@@ -24,11 +25,11 @@ public class Tank {
         this.direction = direction;
         this.tf = tf;
         this.group = group;
+        rect  = new Rectangle(x,y,WIDTH,HEIGHT);
     }
     public void paint(Graphics g) {
         if(!alive) {
             tf.tankList.remove(this);
-
             return;
         }
         switch (direction){

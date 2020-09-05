@@ -12,7 +12,7 @@ public class Bullet {
     public static  final int WIDTH = ResourceManager.bulletL.getWidth();
     public static  final int HEIGHT = ResourceManager.bulletL.getHeight();
     private final Group group;
-
+    Rectangle rect;
     Direction direction;
 
     public Bullet(int x, int y, Direction direction,Group group,TankFrame tankFrame) {
@@ -21,6 +21,7 @@ public class Bullet {
         this.direction = direction;
         this.tankFrame = tankFrame;
         this.group = group;
+        rect  = new Rectangle(x,y,WIDTH,HEIGHT);
     }
 
     public void paint(Graphics g) {
@@ -71,9 +72,11 @@ public class Bullet {
 
     public void collide(Tank tank) {
            if(this.group == tank.group)  return;
-           Rectangle br = new Rectangle(this.x,this.y,Bullet.WIDTH,Bullet.HEIGHT);
-           Rectangle tr = new Rectangle(tank.getX(),tank.getY(),Tank.WIDTH,Tank.HEIGHT);
-           if(br.intersects(tr)){
+           this.rect.x = this.x;
+           this.rect.y = this.y;
+           tank.rect.x = tank.getX();
+           tank.rect.y = tank.getY();
+           if(this.rect.intersects(tank.rect)){
                tank.die();
                this.die();
            }
