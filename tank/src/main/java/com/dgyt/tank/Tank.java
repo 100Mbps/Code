@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Tank {
 
-    private static final int SPEED = 2;
+    private static final int SPEED = 5;
     private int x = 80;
     private int y = 80;
     private boolean moving = true;

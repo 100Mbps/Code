@@ -15,7 +15,7 @@ public class TankFrame extends Frame {
     private final Tank myTank = new Tank(80, 120, Direction.UP,Group.GOOD,this);
     final java.util.List<Bullet> bulletList = new ArrayList<>();
     final java.util.List<Tank> tankList = new ArrayList<>();
-    final static int GAME_WIDTH=800,GAME_HEIGHT=600;
+    final static int GAME_WIDTH=1200,GAME_HEIGHT=600;
     final java.util.List<Explode> explode = new ArrayList<>();
     public TankFrame(String name) {
         super.setVisible(true);
