@@ -23,7 +23,5 @@ public class MapKey {
             });
             threads[i].start();
         }
-
-
     }
 }
