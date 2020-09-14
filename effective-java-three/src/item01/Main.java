@@ -1,12 +1,5 @@
 package item01;
 
-import jdk.internal.util.EnvUtils;
-
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 /**
  * Item 1: Consider static factory methods instead of constructors
  * 静态方法替代构造器。
@@ -31,11 +24,6 @@ public class Main {
         Integer b0 = Integer.valueOf("10000");
         //false
         System.out.println(a0 == b0);
-        BigInteger.TEN
-
-
-
-
     }
 }
 
