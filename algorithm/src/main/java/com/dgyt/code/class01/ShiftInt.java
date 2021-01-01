@@ -1,5 +1,5 @@
-package com.dgyt.code.day01;
-import static com.dgyt.code.day01.PrintBinary.printBinary;
+package com.dgyt.code.class01;
+import static com.dgyt.code.class01.PrintBinary.printBinary;
 
 public class ShiftInt {
 
@@ -24,6 +24,7 @@ public class ShiftInt {
         printBinary(Integer.MIN_VALUE);
         //10000000000000000000000000000000
         printBinary(-Integer.MIN_VALUE);
+        System.out.println(Integer.MIN_VALUE + -Integer.MIN_VALUE);
 
 
 

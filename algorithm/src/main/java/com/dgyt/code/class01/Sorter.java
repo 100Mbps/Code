@@ -1,4 +1,4 @@
-package com.dgyt.code.day01;
+package com.dgyt.code.class01;
 
 public class Sorter {
 
