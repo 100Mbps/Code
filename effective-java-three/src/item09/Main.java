@@ -11,8 +11,8 @@ import java.io.*;
  */
 public class Main {
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException{
+       copy("a","b");
     }
 
     /**
@@ -21,7 +21,8 @@ public class Main {
     static void copy(String src, String dst) throws IOException {
         try (InputStream in = new FileInputStream(src);
              OutputStream out = new FileOutputStream(dst)) {
-            byte[] buf = new byte[16];
+            byte[] buf;
+            buf = new byte[16];
             int n;
             while ((n = in.read(buf)) >= 0) {
                 out.write(buf, 0, n);
