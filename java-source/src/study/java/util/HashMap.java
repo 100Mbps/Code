@@ -135,6 +135,9 @@ import sun.misc.SharedSecrets;
  * @see     Hashtable
  * @since   1.2
  */
+/**
+ * 为什么AbstractMap<K,V>已经实现了Map<k,v>这里还要实现一遍，因为写错了。
+ */
 public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable {
 
